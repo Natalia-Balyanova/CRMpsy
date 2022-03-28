@@ -15,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface PsychologiesRepository extends JpaRepository<Psychologies, Long>, JpaSpecificationExecutor<Psychologies> {
 
-//    Optional<Psychologies> findByBirthday(int birthday);
-//
-//    Optional<Psychologies> findByProblem(Problems problems);
+    Optional<Psychologies> findByBirthday(int birthday);
+
+    Optional<Psychologies> findByProblem(Problem problem);
 }

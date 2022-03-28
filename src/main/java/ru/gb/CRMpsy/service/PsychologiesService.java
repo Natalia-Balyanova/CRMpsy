@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import ru.gb.CRMpsy.entities.Problem;
 import ru.gb.CRMpsy.entities.Psychologies;
 import ru.gb.CRMpsy.repository.PsychologiesRepository;
 import ru.gb.CRMpsy.repository.specifications.PsychologiesSpecifications;
@@ -31,11 +32,15 @@ public class PsychologiesService {
         return psychologiesRepository.findAll(spec, PageRequest.of(page - 1, 8));
     }
 
-//    public Optional<Psychologies> findByBirthday(int birthday) {
-//        return psychologiesRepository.findByBirthday(birthday);
-//    }
-//
-//    public Optional<Psychologies> findByProblem(Problems problems) {
-//        return psychologiesRepository.findByProblem(problems);
-//    }
+    public Psychologies findById(Long psychologiesId) {
+        return psychologiesRepository.findById(psychologiesId).get();
+    }
+
+    public Optional<Psychologies> findByBirthday(int birthday) {
+        return psychologiesRepository.findByBirthday(birthday);
+    }
+
+    public Optional<Psychologies> findByProblem(Problem problem) {
+        return psychologiesRepository.findByProblem(problem);
+    }
 }
