@@ -13,7 +13,6 @@ angular.module('crm-front').controller('psychologiesController', function ($scop
             }
         }).then(function (response) {
             $scope.PsyPage = response.data;
-            $scope.paginationArray = $scope.generatePagesIndexes(1, $scope.PsyPage.totalPages);
         });
     };
 
@@ -21,7 +20,6 @@ angular.module('crm-front').controller('psychologiesController', function ($scop
              $http.get(contextPath + 'api/v1/psychologies')
                  .then(function (response) {
                      $scope.PsyPage = response.data;
-                     $scope.paginationArray = $scope.generatePagesIndexes(1, $scope.PsyPage.totalPages);
                  });
       }
 

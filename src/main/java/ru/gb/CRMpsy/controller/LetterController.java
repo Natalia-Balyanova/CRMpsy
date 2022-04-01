@@ -9,20 +9,14 @@ import ru.gb.CRMpsy.service.LetterService;
 @RequestMapping("/api/v1/letters")
 @RequiredArgsConstructor
 public class LetterController {
-
     private final LetterService letterService;
 
-//    @GetMapping("/{address}/{type}")
-//    public Letter createLetter(@PathVariable String address, @PathVariable int type) {
-//        return letterService.create(address, type);
-//    }
     @GetMapping("/{address}/{phone}/{type}")
     public Letter createLetter(@PathVariable String address, @PathVariable String phone, @PathVariable LetterService.LetterType type) {
         return letterService.create(address, phone, type);
-
 }
 
-    @PostMapping("/send")//TODO: можно потом расширить вриантами рассылки, которые будут в запросе фигурировать (только почта или еще доп.вайбер и т.п.)
+    @PostMapping("/send")
     public void sendLetter(@RequestBody Letter letter) {
         letterService.sendLetter(letter);
     }

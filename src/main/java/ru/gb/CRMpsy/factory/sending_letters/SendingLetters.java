@@ -1,4 +1,4 @@
-package ru.gb.CRMpsy.factory;
+package ru.gb.CRMpsy.factory.sending_letters;
 
 import ru.gb.CRMpsy.dtos.Letter;
 

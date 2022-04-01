@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 @Entity
 @Data
@@ -20,8 +21,12 @@ public class Client {
 
     @Column(name = "name")
     private String name;
-    @Column(name = "birthday")
-    private String birthday;
+    @Column(name = "birth_day")
+    private int birthDay;
+    @Column(name = "birth_month")
+    private int birthMonth;
+    @Column(name = "birth_year")
+    private int birthYear;
     @Column(name = "email")
     private String email;
     @Column(name = "phone")
@@ -37,5 +42,4 @@ public class Client {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
 }

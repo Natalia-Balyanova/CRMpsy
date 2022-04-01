@@ -3,6 +3,9 @@ package ru.gb.CRMpsy.dtos;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.gb.CRMpsy.entities.Order;
+import ru.gb.CRMpsy.entities.OrderItem;
+
+import java.util.List;
 
 
 @Data
@@ -10,14 +13,14 @@ import ru.gb.CRMpsy.entities.Order;
 public class OrderDto {
 
     private Long id;
-    private Long customerId;
+    private Long clientId;
     //private List<OrderItem> orderItems;
-    private int totalPrice;
+    private int price;
 
     public OrderDto(Order order) {
         this.id = order.getId();
-        this.customerId = order.getClient().getId();
-        //   this.orderItems = order.getOrderItems();
-        this.totalPrice = order.getPrice();
+        this.clientId = order.getClient().getId();
+        //this.orderItems = order.getOrderItems();
+        this.price = order.getPrice();
     }
 }
