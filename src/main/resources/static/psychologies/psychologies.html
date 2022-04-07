@@ -1,0 +1,68 @@
+<div>
+    <p></p>
+    <h3>Our Specialists</h3>
+    <p></p>
+
+    <div class="row g-2">
+        <div class="col-6 col-md-2">
+            <form novalidate ng-submit="loadPsy()">
+                <div class="form-floating input-group-sm">
+                    <input type="text" class="form-control" id="filterProblem" placeholder="" ng-model="filter.problem_part">
+                    <label for="filterProblem">Problem</label>
+                </div>
+                <p></p>
+                <div class="form-floating input-group-sm">
+                    <input type="text" class="form-control" id="filterMethod" placeholder="" ng-model="filter.method_part">
+                    <label for="filterProblem">School Method</label>
+                </div>
+                <p></p>
+<!--                <div class="form-floating input-group-sm">-->
+<!--                    <input type="number" class="form-control" id="filterMinPrice" placeholder="" ng-model="filter.min_price">-->
+<!--                    <label for="filterMinPrice">Min price</label>-->
+<!--                </div>-->
+<!--                <p></p>-->
+<!--                <div class="form-floating input-group-sm">-->
+<!--                    <input type="number" class="form-control" id="filterMaxPrice" placeholder="" ng-model="filter.max_price">-->
+<!--                    <label for="filterMaxPrice">Max price</label>-->
+<!--                </div>-->
+                <p></p>
+
+                <div class="form-floating input-group-sm">
+                    <input type="text" class="form-control" id="filterBirthday" placeholder="" ng-model="filter.birthday_part">
+                    <label for="filterBirthday">Age</label>
+                </div>
+                <button class="btn btn-outline-warning btn-sm" style="width: 100%;" type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm-6 col-md-10">
+            <table class="table table-hover">
+                <tr>
+                    <td>ID</td>
+                    <td>Problem</td>
+                    <td>Method</td>
+                    <td>Age</td>
+                    <td></td>
+                </tr>
+                <tbody>
+                <tr ng-repeat="p in PsyPage.content">
+                    <td>{{p.id}}</td>
+                    <td>{{p.problem}}</td>
+                    <td>{{p.method}}</td>
+                    <td>{{p.birthday}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item" ng-repeat="pageIndex in paginationArray">
+                        <button class="page-link" ng-click="loadPsy(pageIndex)">{{pageIndex}}</button>
+                    </li>
+                </ul>
+            </nav>
+            <span class="pages">
+                <button class="btn btn-primary" ng-click="loadPsyDefault()">Default Page</button>
+            </span>
+        </div>
+    </div>
+</div>
