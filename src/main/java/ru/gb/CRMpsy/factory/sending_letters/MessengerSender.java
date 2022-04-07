@@ -1,8 +1,8 @@
-package ru.gb.CRMpsy.factory;
+package ru.gb.CRMpsy.factory.sending_letters;
 
 import ru.gb.CRMpsy.dtos.Letter;
 
-public class MessengerSender extends AbstractSending{
+public class MessengerSender extends AbstractSending {
     public MessengerSender(SendingLetters sendingLetters) {
         super(sendingLetters);
     }

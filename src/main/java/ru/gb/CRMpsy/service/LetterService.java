@@ -2,7 +2,12 @@ package ru.gb.CRMpsy.service;
 
 import org.springframework.stereotype.Service;
 import ru.gb.CRMpsy.dtos.Letter;
-import ru.gb.CRMpsy.factory.*;
+import ru.gb.CRMpsy.factory.creating_letters.BirthdayLetterFactory;
+import ru.gb.CRMpsy.factory.creating_letters.BonusLetterFactory;
+import ru.gb.CRMpsy.factory.creating_letters.LetterFactory;
+import ru.gb.CRMpsy.factory.sending_letters.EmailSender;
+import ru.gb.CRMpsy.factory.sending_letters.MessengerSender;
+import ru.gb.CRMpsy.factory.sending_letters.SendingLetters;
 
 @Service
 public class LetterService {
@@ -11,7 +16,6 @@ public class LetterService {
 
     //Lesson 4 реализован структурный паттерн декоратор. Изначально можно отправлять письма на почту, но функционал разширился до мессенджера
     //(предполагается, что можно добавлять разные мессенджеры)
-
     public Letter create (String address, String phone, LetterType type) {
         return createFactory(type).create(address, phone);
     }

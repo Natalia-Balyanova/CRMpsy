@@ -1,8 +1,8 @@
-package ru.gb.CRMpsy.factory;
+package ru.gb.CRMpsy.factory.creating_letters;
 
 import ru.gb.CRMpsy.dtos.Letter;
 
-public class BirthdayLetterFactory implements LetterFactory{
+public class BirthdayLetterFactory implements LetterFactory {
 
     @Override
     public Letter create(String address, String phone) {

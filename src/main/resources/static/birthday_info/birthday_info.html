@@ -1,6 +1,6 @@
 <div>
     <p></p>
-    <h3>List of clients</h3>
+    <h3>List of clients whose Birthday is today</h3>
     <div class="col-sm-6 col-md-10">
         <table class="table">
             <thead>
@@ -31,6 +31,11 @@
             </tbody>
         </table>
 
+        <h3>Creating report</h3>
+        <form novalidate ng-submit="makeReport()">
+            <input class="form-control" type="text" placeholder="Name" ng-model="name">
+            <p></p>
+            <button type="submit" class="btn btn-primary" >Create Report</button>
+        </form>
     </div>
-
 </div>

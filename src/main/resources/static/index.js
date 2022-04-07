@@ -18,6 +18,10 @@
                 templateUrl: 'birthday_info/birthday_info.html',
                 controller: 'birthdayController'
             })
+            .when('/bonus', {
+                templateUrl: 'bonus_info/bonus_info.html',
+                controller: 'bonusController'
+            })
             .when('/order', {
                 templateUrl: 'order_info/order_info.html',
                 controller: 'orderController'

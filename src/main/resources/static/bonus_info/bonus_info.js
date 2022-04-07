@@ -1,12 +1,13 @@
-angular.module('crm-front').controller('psychologiesController', function ($scope, $http, $location, $localStorage) {
+angular.module('crm-front').controller('bonusController', function ($scope, $http, $location, $localStorage) {
     const contextPath = 'http://localhost:8190/crm/';
 
-    $scope.loadCustomers = function (product_id) {
+    $scope.loadClients = function (psychologies_id) {
         $http ({
             url: contextPath + 'api/v1/clients/' + psychologies_id,
             method: 'GET'
         }).then(function (response) {
             $scope.clients = response.data;
+            $scope.current_psychologies_id = psychologies_id;
         });
     };
 
@@ -28,5 +29,15 @@ angular.module('crm-front').controller('psychologiesController', function ($scop
             alert('Success!');
         });
     };
+
+     $scope.makePsyReport = function () {
+        $http ({
+            url: contextPath + 'api/v1/clients/report/'+ $scope.name +'/BONUS/' + $scope.current_psychologies_id,
+            method: 'POST',
+            data: $scope.clients
+        }).then(function (response) {
+            alert('Report Created');
+        });
+     };
 
 });

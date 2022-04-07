@@ -16,6 +16,7 @@ public class PsychologiesDto {
     private String email;
     private String method;
     private String problemTitle;
+    private int price;
 
     public PsychologiesDto(){}
 
@@ -90,5 +91,13 @@ public class PsychologiesDto {
 
     public void setProblemsTitle(String problemsTitle) {
         this.problemTitle = problemsTitle;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

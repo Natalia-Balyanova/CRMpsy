@@ -33,6 +33,9 @@ public class Psychologies {
     @JoinColumn(name = "problem_id")
     private Problem problem;
 
+    @Column(name = "price")
+    private int price;
+
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;

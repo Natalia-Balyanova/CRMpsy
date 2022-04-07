@@ -2,7 +2,9 @@ create table clients
 (
     id          bigserial primary key,
     name        varchar(30) not null,
-    birthday    varchar(30) not null,
+    birth_day   integer,
+    birth_month integer,
+    birth_year  integer,
     email       varchar(255),
     phone       varchar(255),
     created_at  timestamp default current_timestamp,
@@ -12,7 +14,7 @@ create table clients
 create table orders
 (
     id          bigserial primary key,
-    client_id  bigint references clients (id),
+    client_id   bigint references clients (id),
     price       integer,
     created_at  timestamp default current_timestamp,
     updated_at  timestamp default current_timestamp
@@ -35,10 +37,11 @@ create table psychologies (
   id            bigserial primary key,
   name          varchar(255),
   surname       varchar(255),
-  birthday      int not null,
+  birthday      integer not null,
   email         varchar(255),
   school_method varchar(255),
-  problem_id   bigint references problems (id),
+  problem_id    bigint references problems (id),
+  price         integer,
   created_at    timestamp default current_timestamp,
   updated_at    timestamp default current_timestamp
 );
@@ -53,17 +56,17 @@ create table order_items
     updated_at        timestamp default current_timestamp
 );
 
-insert into psychologies (name, surname, birthday, email, school_method, problem_id)
+insert into psychologies (name, surname, birthday, email, school_method, problem_id, price)
 values
-('John', 'Malkovich', 1960, 'john@gmail.com', 'behavior', 1),
-('John', 'Malkovich', 1960, 'john@gmail.com', 'behavior', 2),
-('Max', 'Maxwell', 1985, 'maxn@gmail.com', 'psychoanalysis', 3);
+('John', 'Malkovich', 1960, 'john@gmail.com', 'behavior', 1, 5000),
+('John', 'Malkovich', 1960, 'john@gmail.com', 'behavior', 2, 5000),
+('Max', 'Maxwell', 1985, 'maxn@gmail.com', 'psychoanalysis', 3, 3000);
 
-insert into clients (name, birthday, email, phone)
-values ('Bob', '01.01.1987', 'bob_1987@gmail.com', '1234567');
+insert into clients (name, birth_day, birth_month, birth_year, email, phone)
+values ('Bob', 1, 4, 2022, 'bob_1987@gmail.com', '1234567');
 
 insert into orders (client_id, price)
-values (1, 130);
+values (1, 5000);
 
 insert into order_items (order_id, psychologies_id, price)
 values (1, 1, 5000);

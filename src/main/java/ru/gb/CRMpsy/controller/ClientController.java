@@ -15,13 +15,25 @@ import java.util.List;
 public class ClientController {
     private final ClientService clientService;
 
-//    @GetMapping("/birthday")
-//    public List<ClientDto> findAlByBirthday(@PathVariable String birthday) {
-//        return clientService.findAllByBirthday(birthday);
-//    }
+    @GetMapping("/birthday")
+    public List<ClientDto> findAllByBirthday() {
+        LocalDate date = LocalDate.now();
+        int day = date.getDayOfMonth();
+        int month = date.getMonthValue();
+        return clientService.findAllByBirthday(day, month);
+    }
 
     @GetMapping("/{psychologiesId}")
-    public List<ClientDto> findAlByPsychologiesId(@PathVariable Long psychologiesId) {
+    public List<ClientDto> findAllByPsychologiesId(@PathVariable Long psychologiesId) {
         return clientService.findAllByPsychologiesId(psychologiesId);
+    }
+
+    @PostMapping("/report/{name}/{reportType}/{psychologiesId}")
+    public void makeReport(@PathVariable String name, @PathVariable ClientService.ReportType reportType, @PathVariable (required = false)  Long psychologiesId, @RequestBody List<ClientDto> clients){
+        if (psychologiesId != null){
+            clientService.makeReport(name, clients, reportType, psychologiesId);
+        } else {
+            clientService.makeReport(name, clients, reportType);
+        }
     }
 }
