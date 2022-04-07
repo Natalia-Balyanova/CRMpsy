@@ -7,23 +7,28 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "problems")
-public class Problem {
+@Table(name = "clients")
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "birthday")
+    private String birthday;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "phone")
+    private String phone;
 
-    @OneToMany(mappedBy = "problem")
-    private List<Psychologies> psychologies;
+//    @OneToMany(mappedBy = "client")
+//    private List <Order> orders;
 
     @CreationTimestamp
     @Column(name = "created_at")
@@ -32,4 +37,5 @@ public class Problem {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
 }

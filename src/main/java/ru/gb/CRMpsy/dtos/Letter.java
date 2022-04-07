@@ -3,6 +3,7 @@ package ru.gb.CRMpsy.dtos;
 public class Letter {
     private String message;
     private String address;
+    private String phone;
 
     public String getMessage() {
         return message;
@@ -20,11 +21,20 @@ public class Letter {
         this.address = address;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public Letter() {
     }
 
-    public Letter(String address, String message) {
+    public Letter(String address, String message, String phone) {
         this.address = address;
         this.message = message;
+        this.phone = phone;
     }
 }

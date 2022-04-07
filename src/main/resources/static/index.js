@@ -14,6 +14,14 @@
                 templateUrl: 'psychologies/psychologies.html',
                 controller: 'psychologiesController'
             })
+            .when('/birthday', {
+                templateUrl: 'birthday_info/birthday_info.html',
+                controller: 'birthdayController'
+            })
+            .when('/order', {
+                templateUrl: 'order_info/order_info.html',
+                controller: 'orderController'
+            })
             .otherwise({
                 redirectTo: '/'
             });

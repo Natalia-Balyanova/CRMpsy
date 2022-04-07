@@ -1,0 +1,36 @@
+<div>
+    <p></p>
+    <h3>List of clients</h3>
+    <div class="col-sm-6 col-md-10">
+        <table class="table">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td></td>
+                <td>Letter</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat='c in clients'>
+                <td>{{c.id}}</td>
+                <td>{{c.name}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.phone}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="createLetter(c.email, c.phone)">Create Letter</button>
+                </td>
+                <td>{{letter.message}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="sendLetter()">Send Letter</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,46 @@
+<div>
+    <p></p>
+    <h3>Clients list</h3>
+    <p></p>
+
+    <div class="row g-2">
+        <div class="col-6 col-md-2">
+            <form novalidate ng-submit="loadClients(psychologies_id)">
+                <input class="form-control" type="text" placeholder="ID psy" ng-model="psychologies_id">
+                <p></p>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+        <div class="col-sm-6 col-md-10">
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>ID client`s</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                    <td></td>
+                    <td>Letter</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat='c in clients'>
+                    <td>{{c.id}}</td>
+                    <td>{{c.name}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.phone}}</td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="createBonusLetter(c.email, c.phone)">Create Letter</button>
+                    </td>
+                    <td>{{bonusLetter.message}}</td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="sendBonusLetter()">Send letter</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
