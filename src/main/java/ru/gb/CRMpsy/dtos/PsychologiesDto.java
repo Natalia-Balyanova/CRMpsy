@@ -37,6 +37,17 @@ public class PsychologiesDto {
         this.problemTitle = problemTitle;
     }
 
+    public PsychologiesDto(Psychologies psychologies) {
+        this.id = psychologies.getId();
+        this.name = psychologies.getName();
+        this.surname = psychologies.getSurname();
+        this.birthday = psychologies.getBirthday();
+        this.email = psychologies.getEmail();
+        this.method = psychologies.getMethod();
+        this.problemTitle = psychologies.getProblemTitle();
+        this.price = psychologies.getPrice();
+    }
+
     public Long getId() {
         return id;
     }

@@ -19,7 +19,8 @@ public class OrderDto {
 
     public OrderDto(Order order) {
         this.id = order.getId();
-        this.clientId = order.getClient().getId();
+        //this.clientId = order.getClient().getId();
+        this.clientId = order.getClientId();
         //this.orderItems = order.getOrderItems();
         this.price = order.getPrice();
     }

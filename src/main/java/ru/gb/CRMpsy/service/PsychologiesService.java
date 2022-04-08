@@ -1,46 +1,34 @@
 package ru.gb.CRMpsy.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import ru.gb.CRMpsy.entities.Problem;
+import ru.gb.CRMpsy.dtos.PsychologiesDto;
 import ru.gb.CRMpsy.entities.Psychologies;
-import ru.gb.CRMpsy.repository.PsychologiesRepository;
-import ru.gb.CRMpsy.repository.specifications.PsychologiesSpecifications;
+import ru.gb.CRMpsy.repository.PsychologiesRepositoryJDBC;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class PsychologiesService {
-    public final PsychologiesRepository psychologiesRepository;
+    //public final PsychologiesRepository psychologiesRepository;
+    public final PsychologiesRepositoryJDBC psychologiesRepositoryJDBC;
 
-    public Page<Psychologies> findAll(Integer page, String problemPart, String methodPart, Integer birthdayPart) {
-        Specification<Psychologies> spec = Specification.where(null);
-        if (problemPart != null) {
-            spec = spec.and(PsychologiesSpecifications.problemEqual(problemPart));
-        }
-        if (methodPart != null) {
-            spec = spec.and(PsychologiesSpecifications.methodLike(methodPart));
-        }
-        if (birthdayPart != null){
-            spec = spec.and(PsychologiesSpecifications.birthdayGreaterOrEqualsThan(birthdayPart));
-        }
-        return psychologiesRepository.findAll(spec, PageRequest.of(page - 1, 8));
+    public List<PsychologiesDto> findAll() {
+        return psychologiesRepositoryJDBC.findAll().
+                stream().map(PsychologiesDto::new).collect(Collectors.toList());
     }
 
     public Psychologies findById(Long psychologiesId) {
-        return psychologiesRepository.findById(psychologiesId).get();
+        return psychologiesRepositoryJDBC.findById(psychologiesId);
     }
 
-    public Optional<Psychologies> findByBirthday(int birthday) {
-        return psychologiesRepository.findByBirthday(birthday);
+    public Psychologies findByBirthday(int birthday) {
+        return psychologiesRepositoryJDBC.findByBirthday(birthday);
     }
 
-    public Optional<Psychologies> findByProblem(Problem problem) {
-        return psychologiesRepository.findByProblem(problem);
-    }
+//    public Psychologies findByProblem(String problem) {
+//        return psychologiesRepositoryJDBC.findByProblem(problem);
+//    }
 }
