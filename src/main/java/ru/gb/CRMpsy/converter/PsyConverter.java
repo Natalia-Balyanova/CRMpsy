@@ -11,6 +11,6 @@ public class PsyConverter {
     }
 
     public PsychologiesDto entityToDto(Psychologies psychologies) {
-        return new PsychologiesDto(psychologies.getId(), psychologies.getProblem().getTitle(), psychologies.getMethod(), psychologies.getBirthday());
+        return new PsychologiesDto(psychologies.getId(), psychologies.getProblemTitle(), psychologies.getMethod(), psychologies.getBirthday());
     }
 }

@@ -6,6 +6,7 @@ import ru.gb.CRMpsy.dtos.ClientDto;
 import ru.gb.CRMpsy.entities.Client;
 import ru.gb.CRMpsy.service.ClientService;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class ClientController {
     private final ClientService clientService;
 
     @GetMapping("/birthday")
-    public List<ClientDto> findAllByBirthday() {
+    public List<ClientDto> findAllByBirthday() throws SQLException {
         LocalDate date = LocalDate.now();
         int day = date.getDayOfMonth();
         int month = date.getMonthValue();
@@ -24,7 +25,7 @@ public class ClientController {
     }
 
     @GetMapping("/{psychologiesId}")
-    public List<ClientDto> findAllByPsychologiesId(@PathVariable Long psychologiesId) {
+    public List<ClientDto> findAllByPsychologiesId(@PathVariable Long psychologiesId) throws SQLException {
         return clientService.findAllByPsychologiesId(psychologiesId);
     }
 
