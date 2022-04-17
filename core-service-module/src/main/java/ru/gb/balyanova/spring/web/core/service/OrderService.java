@@ -22,8 +22,8 @@ public class OrderService {
     public List<Order> findAllOrdersByPsychologiesId(Long psychologiesId) {
         List<OrderItem> orderItems = orderItemService.findAllByPsychologies(psychologiesService.findById(psychologiesId));
         List<Order> orders = new ArrayList<>();
-        for (OrderItem oi : orderItems) {
-            orders.add(orderRepositoryJDBC.findById(oi.getOrderId()));
+        for (OrderItem orderItem : orderItems) {
+            orders.add(orderRepositoryJDBC.findById(orderItem.getOrderId()));
         }
         return orders;
     }

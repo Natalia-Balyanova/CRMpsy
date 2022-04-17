@@ -42,7 +42,7 @@ values
 ('Max', 'Maxwell', 1985, 'maxn@gmail.com', 'psychoanalysis', 'Depression', 3000);
 
 insert into clients (name, birth_day, birth_month, birth_year, email, phone)
-values ('Bob', 8, 4, 2022, 'bob_1987@gmail.com', '1234567');
+values ('Bob', 17, 4, 2022, 'bob_1987@gmail.com', '1234567');
 
 insert into orders (client_id, price)
 values (1, 5000);

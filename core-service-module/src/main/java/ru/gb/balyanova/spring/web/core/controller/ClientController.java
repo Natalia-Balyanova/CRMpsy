@@ -29,8 +29,8 @@ public class ClientController {
     }
 
     @PostMapping("/report/{name}/{reportType}/{psychologiesId}")
-    public void makeReport(@PathVariable String name, @PathVariable ClientService.ReportType reportType, @PathVariable (required = false)  Long psychologiesId, @RequestBody List<ClientDto> clients){
-        if (psychologiesId != null){
+    public void makeReport2(@PathVariable String name, @PathVariable ClientService.ReportType reportType, @PathVariable (required = false)  Long psychologiesId, @RequestBody List<ClientDto> clients){
+        if (name != null && psychologiesId != null){
             clientService.makeReport(name, clients, reportType, psychologiesId);
         } else {
             clientService.makeReport(name, clients, reportType);

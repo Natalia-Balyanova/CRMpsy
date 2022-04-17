@@ -34,8 +34,8 @@ public class ClientService {
     public List<ClientDto> findAllByPsychologiesId(Long psychologiesId) throws SQLException {
         List<Order> orders = orderService.findAllOrdersByPsychologiesId(psychologiesId);
         List<Client> clients = new ArrayList<>();
-        for (Order o : orders) {
-            clients.add(clientRepositoryJDBC.findById(o.getClientId()));
+        for (Order order : orders) {
+            clients.add(clientRepositoryJDBC.findById(order.getClientId()));
         }
         return clients.stream().map(ClientDto::new).collect(Collectors.toList());
     }
